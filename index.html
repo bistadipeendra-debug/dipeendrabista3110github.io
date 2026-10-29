@@ -1,0 +1,958 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffd9e6" />
+    <title>Happy Birthday, Puja ❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true" id="ambient"></div>
+
+    <section class="lock-screen" id="lockScreen">
+      <div class="lock-card glass">
+        <div class="eyebrow">A little surprise for someone special</div>
+        <div class="lock-heart">💌</div>
+        <h1>Made just for <span>Puja</span></h1>
+        <p>Something beautiful is waiting for you...</p>
+        <form id="unlockForm">
+          <label class="sr-only" for="passcode">Birthday unlock code</label>
+          <input
+            id="passcode"
+            type="password"
+            inputmode="numeric"
+            maxlength="4"
+            placeholder="Enter the birthday code"
+            autocomplete="off"
+          />
+          <button class="btn primary" type="submit">
+            Unlock your surprise ✨
+          </button>
+          <p class="error" id="unlockError" aria-live="polite"></p>
+        </form>
+        <small>A tiny key to a little birthday magic · 31 October</small>
+      </div>
+    </section>
+
+    <main id="siteContent" class="hidden">
+      <header class="topbar">
+        <a class="brand" href="#welcome">for <span>Puja</span> ♡</a>
+        <button
+          id="musicToggle"
+          class="icon-btn"
+          type="button"
+          aria-label="Toggle background music"
+        >
+          ♫ Music: Off
+        </button>
+      </header>
+
+      <section class="hero section" id="welcome">
+        <div class="hero-orbit orbit-one"></div>
+        <div class="hero-orbit orbit-two"></div>
+        <p class="eyebrow">A day for the girl who deserves the world</p>
+        <h1 class="hero-title">
+          Hey, <em>beautiful</em><br />birthday girl! 🎀
+        </h1>
+        <p class="lead">
+          Today is all about you. Take a breath, forget the stress for a moment,
+          and let yourself feel special. 💗
+        </p>
+        <button class="btn primary" id="beginBtn">
+          Let's begin your surprise ✨
+        </button>
+        <div class="scroll-note">A little birthday story ↓</div>
+      </section>
+
+      <section class="section rest-section" id="rest">
+        <div class="section-heading">
+          <p class="eyebrow">Before your surprise opens</p>
+          <h2>Take a <span>30-second rest</span> 🌙</h2>
+          <p>
+            First, a little rest. Nothing to do, nothing to prove. Just breathe
+            along with the glow, and then your surprise will open. 🌿
+          </p>
+        </div>
+        <div class="rest-card glass">
+          <p class="rest-note">
+            You carry so much, and you carry it so gracefully. For the next
+            thirty seconds, you don't have to be strong, perfect, or productive.
+            Just breathe, soften your shoulders, and let this little pause be a
+            gift to yourself. 💗<span
+              >You are doing better than you think, Puja.</span
+            >
+          </p>
+          <div class="breath-wrap" id="breathWrap">
+            <svg class="rest-ring" viewBox="0 0 120 120" aria-hidden="true">
+              <circle class="ring-bg" cx="60" cy="60" r="54"></circle>
+              <circle
+                class="ring-fg"
+                id="restRing"
+                cx="60"
+                cy="60"
+                r="54"
+              ></circle>
+            </svg>
+            <div class="breath-orb" id="breathOrb">
+              <span id="breathText">Ready when you are</span
+              ><strong id="restTime" aria-live="off">30</strong>
+            </div>
+          </div>
+          <p class="rest-whisper" id="restWhisper" aria-live="polite">
+            Take a moment. The whole world can wait. 🌷
+          </p>
+          <button class="btn primary" id="restBtn" type="button">
+            Begin my 30-second rest 🌿
+          </button>
+          <div
+            class="promise-response rest-done hidden"
+            id="restDoneBox"
+            aria-live="polite"
+          >
+            <h3>Welcome back, Princess 🌸</h3>
+            <p>
+              Thirty seconds of calm, and you gave them to yourself. You can
+              pause like this any time you need to. Rest is not weakness. It is
+              how a beautiful heart keeps going. Now, your surprise is ready to
+              open. 🌷✨
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="calendar">
+        <div class="section-heading">
+          <p class="eyebrow">Your special day</p>
+          <h2>October, <span>your month</span> 🍂</h2>
+        </div>
+        <div class="calendar-card glass">
+          <div class="calendar-top">
+            <span>OCTOBER</span><strong>2026</strong>
+          </div>
+          <div class="calendar-grid weekdays">
+            <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span
+            ><span>Thu</span><span>Fri</span><span>Sat</span>
+          </div>
+          <div class="calendar-grid dates" id="calendarDates"></div>
+          <p class="calendar-note">
+            <strong
+              >A good heart. A beautiful soul. Born in October. 🍂❤️</strong
+            ><br />October became more beautiful the day someone like you was
+            born.
+          </p>
+          <p class="calendar-reveal" id="calendarReveal" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section class="section mirror-section" id="mirror">
+        <div class="section-heading">
+          <p class="eyebrow">A little reminder</p>
+          <h2>Meet the <span>beautiful you</span> 🪞</h2>
+          <p>Hey Princess, take a moment for yourself. 💗</p>
+          <p>Look at the beautiful person in front of you.</p>
+        </div>
+        <div class="mirror-frame" id="mirrorFrame">
+          <div class="mirror-placeholder">
+            🪞<span>Your reflection belongs here</span>
+          </div>
+          <img
+            id="mirrorFallbackPhoto"
+            class="mirror-fallback-photo hidden"
+            src="photos/beautiful-girl.jpg"
+            alt="A lovely photo of Puja"
+            onerror="
+              this.onerror = null;
+              this.src = 'photos/puja-1.jpg';
+            "
+          /><video
+            id="mirrorVideo"
+            autoplay
+            playsinline
+            muted
+            class="hidden"
+          ></video>
+        </div>
+        <p class="small-note" id="mirrorStatus" aria-live="polite">
+          Your camera is only used for this five-second mirror moment.
+        </p>
+        <p
+          class="mirror-countdown hidden"
+          id="mirrorCountdown"
+          aria-live="polite"
+        ></p>
+        <button class="btn secondary" id="mirrorBtn" type="button">
+          Look in the Mirror 🪞
+        </button>
+        <button class="btn subtle hidden" id="mirrorSkipBtn" type="button">
+          Continue to your message ✨
+        </button>
+        <div class="mirror-reveal hidden" id="mirrorReveal">
+          <h2 class="beautiful-word">BEAUTIFUL ✨</h2>
+          <p>Nothing is as beautiful as you are, Puja. ❤️</p>
+          <p>Never forget how special you are, inside and out. 🌷</p>
+        </div>
+      </section>
+
+      <section class="section" id="wonders">
+        <div class="section-heading">
+          <p class="eyebrow">A little comparison</p>
+          <h2>Even the universe has <span>competition</span> ✨</h2>
+        </div>
+        <div class="wonder-grid">
+          <article class="wonder-card">
+            <div class="wonder-art stars">✦ ✧ ✦</div>
+            <h3>The Stars ⭐</h3>
+            <p>You shine in your own way.</p>
+          </article>
+          <article class="wonder-card">
+            <div class="wonder-art moon">☾</div>
+            <h3>The Moon 🌙</h3>
+            <p>Even the moon has competition.</p>
+          </article>
+          <article class="wonder-card">
+            <div class="wonder-art flower">✿</div>
+            <h3>The Flowers 🌸</h3>
+            <p>Your beauty makes the world bloom.</p>
+          </article>
+          <article class="wonder-card">
+            <div class="wonder-art galaxy">🪐</div>
+            <h3>The Galaxy 🌌</h3>
+            <p>Your magic is beyond imagination.</p>
+          </article>
+          <article class="wonder-card">
+            <div class="wonder-art sun">☼</div>
+            <h3>The Sun ☀️</h3>
+            <p>You bring warmth wherever you go.</p>
+          </article>
+        </div>
+        <p class="grand-line">
+          Nothing is more beautiful than you.<br /><span
+            >You are more beautiful than all of this. ❤️</span
+          >
+        </p>
+      </section>
+
+      <section class="section sorry-gallery-section" id="sorryGallery">
+        <div class="section-heading">
+          <p class="eyebrow">A tiny apology from the universe</p>
+          <h2>Sorry, <span>everything beautiful</span> 🌌</h2>
+          <p>
+            Five little wonders, one at a time. Use the arrows or dots to
+            explore each one. 💗
+          </p>
+        </div>
+        <div
+          class="sorry-slider"
+          id="sorrySlider"
+          aria-label="Five beautiful things image slider"
+        >
+          <div
+            class="sorry-slider-viewport"
+            id="sorrySliderViewport"
+            tabindex="0"
+            aria-label="Image slides. Use left and right arrow keys to change slide."
+          >
+            <div class="sorry-slider-track" id="sorrySliderTrack">
+              <figure class="sorry-photo-card">
+                <img
+                  src="photos/sorry-sun.jpg"
+                  alt="Golden sun collage"
+                /><button
+                  class="slide-message-toggle"
+                  type="button"
+                  aria-expanded="false"
+                >
+                  Reveal message 💌
+                </button>
+                <figcaption class="slide-message hidden">
+                  <strong>Sorry, Sun ☀️</strong
+                  ><span>You shine brighter in the ways that matter.</span>
+                </figcaption>
+              </figure>
+              <figure class="sorry-photo-card">
+                <img
+                  src="photos/sorry-moon.jpg"
+                  alt="Moonlight collage"
+                /><button
+                  class="slide-message-toggle"
+                  type="button"
+                  aria-expanded="false"
+                >
+                  Reveal message 💌
+                </button>
+                <figcaption class="slide-message hidden">
+                  <strong>Sorry, Moon 🌙</strong
+                  ><span>Your glow has its own kind of magic.</span>
+                </figcaption>
+              </figure>
+              <figure class="sorry-photo-card">
+                <img
+                  src="photos/sorry-flower.jpg"
+                  alt="Pink and white flowers at sunset"
+                /><button
+                  class="slide-message-toggle"
+                  type="button"
+                  aria-expanded="false"
+                >
+                  Reveal message 💌
+                </button>
+                <figcaption class="slide-message hidden">
+                  <strong>Sorry, Flower 🌸</strong
+                  ><span>Even flowers have to share the beauty today.</span>
+                </figcaption>
+              </figure>
+              <figure class="sorry-photo-card">
+                <img
+                  src="photos/sorry-galaxy.jpg"
+                  alt="Colorful galaxy collage"
+                /><button
+                  class="slide-message-toggle"
+                  type="button"
+                  aria-expanded="false"
+                >
+                  Reveal message 💌
+                </button>
+                <figcaption class="slide-message hidden">
+                  <strong>Sorry, Galaxy 🌌</strong
+                  ><span>Your beauty is a whole universe of its own.</span>
+                </figcaption>
+              </figure>
+              <figure class="sorry-photo-card">
+                <img
+                  src="photos/sorry-stars.jpg"
+                  alt="Starry night sky collage"
+                /><button
+                  class="slide-message-toggle"
+                  type="button"
+                  aria-expanded="false"
+                >
+                  Reveal message 💌
+                </button>
+                <figcaption class="slide-message hidden">
+                  <strong>Sorry, Stars ✨</strong
+                  ><span
+                    >You don't need to sparkle loudly to be unforgettable.</span
+                  >
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="sorry-slider-controls" aria-label="Slider controls">
+            <button
+              class="slider-arrow"
+              id="sorrySliderPrev"
+              type="button"
+              aria-label="Previous photo"
+            >
+              ←
+            </button>
+            <div
+              class="sorry-slider-dots"
+              id="sorrySliderDots"
+              aria-label="Choose a photo"
+            ></div>
+            <button
+              class="slider-arrow"
+              id="sorrySliderNext"
+              type="button"
+              aria-label="Next photo"
+            >
+              →
+            </button>
+          </div>
+          <p
+            class="sorry-slider-count"
+            id="sorrySliderCount"
+            aria-live="polite"
+          >
+            1 / 5
+          </p>
+        </div>
+        <p class="grand-line hidden" id="fiveThingsMessage">
+          Five beautiful things… and still none of them compare to you, Puja.
+        </p>
+        <button class="btn secondary" id="oneMoreSurpriseBtn" type="button">
+          One more surprise ✨
+        </button>
+      </section>
+
+      <section class="section" id="special">
+        <div class="section-heading">
+          <p class="eyebrow">Little things that make you, you</p>
+          <h2>Why Puja Is <span>Special</span> 💎</h2>
+          <p>Tap each little treasure to discover its surprise ✨</p>
+        </div>
+        <div class="qualities-grid">
+          <button
+            class="quality-card reveal-card"
+            type="button"
+            aria-expanded="false"
+          >
+            <span class="quality-icon">🎶</span>
+            <h3>Her Voice 🎶</h3>
+            <span class="reveal-prompt"
+              >Tap to discover your little surprise ✨</span
+            >
+            <p class="quality-message">
+              Your voice has a warmth that makes ordinary moments special.
+            </p>
+          </button>
+          <button
+            class="quality-card reveal-card"
+            type="button"
+            aria-expanded="false"
+          >
+            <span class="quality-icon">🌙</span>
+            <h3>Her Face 🌙</h3>
+            <span class="reveal-prompt"
+              >Tap to discover your little surprise ✨</span
+            >
+            <p class="quality-message">Even the moon could envy your glow.</p>
+          </button>
+          <button
+            class="quality-card reveal-card"
+            type="button"
+            aria-expanded="false"
+          >
+            <span class="quality-icon">❤️</span>
+            <h3>Her Heart ❤️</h3>
+            <span class="reveal-prompt"
+              >Tap to discover your little surprise ✨</span
+            >
+            <p class="quality-message">
+              Your kind heart is your most beautiful treasure.
+            </p>
+          </button>
+          <button
+            class="quality-card reveal-card"
+            type="button"
+            aria-expanded="false"
+          >
+            <span class="quality-icon">💎</span>
+            <h3>Her Character 💎</h3>
+            <span class="reveal-prompt"
+              >Tap to discover your little surprise ✨</span
+            >
+            <p class="quality-message">
+              Your character shines brighter than appearances ever could.
+            </p>
+          </button>
+          <button
+            class="quality-card reveal-card"
+            type="button"
+            aria-expanded="false"
+          >
+            <span class="quality-icon">😊</span>
+            <h3>Her Smile 😊</h3>
+            <span class="reveal-prompt"
+              >Tap to discover your little surprise ✨</span
+            >
+            <p class="quality-message">
+              Your smile suits you. Never stop sharing it with the world.
+            </p>
+          </button>
+        </div>
+      </section>
+
+      <section class="photo-feature" id="photoFeature">
+        <div class="feature-photo portrait-feature">
+          <img
+            src="photos/beautiful-girl-1.jpg"
+            alt="Dreamy golden-hour portrait of a girl in a flower garden"
+          />
+        </div>
+        <div class="feature-copy">
+          <p class="eyebrow">For the girl reading this</p>
+          <h2>
+            And now, a little reminder about the most beautiful girl in this
+            story…
+          </h2>
+          <p>
+            Maybe the photo is only a little inspiration, but the message is for
+            you, Puja: your beauty is more than a face. It is your smile, your
+            heart, your courage, and the way you keep going even on busy days.
+            ❤️
+          </p>
+          <p class="portrait-note">
+            Never compare yourself with anyone else. There is only one you, and
+            that is your magic. 🌷
+          </p>
+        </div>
+      </section>
+
+      
+
+      <section class="section videos-section" id="videos">
+        <div class="section-heading">
+          <p class="eyebrow">Moments made just for you</p>
+          <h2>Two little <span>surprises</span> to watch 🎬</h2>
+          <p>Turn your sound on, get comfy, and press play. 💗</p>
+        </div>
+        <div class="video-grid">
+          <article class="video-card glass">
+            <div class="video-frame">
+              <video
+                id="surpriseVideo1"
+                controls
+                playsinline
+                preload="metadata"
+              >
+                <source src="videos/video-1.mp4" type="video/mp4" />
+                Your browser can't play this video.
+              </video>
+              <div class="video-missing hidden" aria-live="polite">
+                <span class="video-missing-icon">🎞️</span
+                ><span>Your surprise is on its way 💗</span>
+              </div>
+            </div>
+            <h3>Surprise one 🎁</h3>
+            <p>A little moment, just for you.</p>
+          </article>
+          <article class="video-card glass">
+            <div class="video-frame">
+              <video
+                id="surpriseVideo2"
+                controls
+                playsinline
+                preload="metadata"
+              >
+                <source src="videos/video-2.mp4" type="video/mp4" />
+                Your browser can't play this video.
+              </video>
+              <div class="video-missing hidden" aria-live="polite">
+                <span class="video-missing-icon">🎞️</span
+                ><span>Your surprise is on its way 💗</span>
+              </div>
+            </div>
+            <h3>Surprise two 💝</h3>
+            <p>Because you deserve more than one.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section letter-section" id="letter">
+        <div class="section-heading">
+          <p class="eyebrow">A few words from the heart</p>
+          <h2>A letter, <span>just for you</span> 💌</h2>
+        </div>
+        <button class="envelope" id="envelopeBtn" aria-expanded="false">
+          <span class="envelope-heart">♥</span
+          ><span>Tap to open your letter</span>
+        </button>
+        <article class="letter-paper hidden" id="letterPaper">
+          <h3>My Dear Puja, ❤️</h3>
+          <p>Happy birthday to someone truly special.</p>
+          <p>
+            The world may say anything about you, but never let its words make
+            you forget your worth. You are kinder, more beautiful, and more
+            special than the world may understand.
+          </p>
+          <p>
+            You don't have to be perfect to be precious. Your heart and the
+            person you are make you different in the most beautiful way.
+          </p>
+          <p>
+            I hope life brings you reasons to smile, courage when things get
+            difficult, and success in everything you work for.
+          </p>
+          <p>
+            Even on your busiest days, remember to rest, take care of yourself,
+            and be gentle with your own heart.
+          </p>
+          <p>
+            Never stop believing in yourself, Princess. The world needs your
+            smile. ✨
+          </p>
+          <p>With lots of good wishes, ❤️</p>
+          <p class="signature">
+            From the person who always wants to see you win, succeed in life,
+            and keep that beautiful smile on your face. 🌷✨❤️
+          </p>
+        </article>
+      </section>
+
+      <section class="section cake-section" id="cake">
+        <div class="section-heading">
+          <p class="eyebrow">Make a wish</p>
+          <h2>A little cake for the <span>birthday princess</span> 🎂</h2>
+        </div>
+        <div class="cake" aria-label="Birthday cake with candles">
+          <div class="candles">
+            <button class="candle" type="button" aria-label="Blow out candle 1" disabled><i></i></button>
+            <button class="candle" type="button" aria-label="Blow out candle 2" disabled><i></i></button>
+            <button class="candle" type="button" aria-label="Blow out candle 3" disabled><i></i></button>
+            <button class="candle" type="button" aria-label="Blow out candle 4" disabled><i></i></button>
+            <button class="candle" type="button" aria-label="Blow out candle 5" disabled><i></i></button>
+            <button class="candle" type="button" aria-label="Blow out candle 6" disabled><i></i></button>
+          </div>
+          <div class="cake-layer layer-top"></div>
+          <div class="cake-layer layer-mid"></div>
+          <div class="cake-layer layer-bottom"></div>
+          <div class="cake-plate"></div>
+        </div>
+        <button class="btn primary" id="wishStartBtn" type="button">
+          Make a wish 🌠
+        </button>
+        <p class="tap-hint hidden" id="tapHint" aria-live="polite">Tap each candle slowly… every flame is hiding a surprise 👆✨</p>
+        <p id="cakeMessage" class="cake-message" aria-live="polite"></p>
+
+        <div class="candle-surprise" id="candleSurprise" aria-hidden="true">
+          <div class="candle-surprise-backdrop"></div>
+          <div class="candle-surprise-card" role="dialog" aria-modal="true" aria-labelledby="candleSurpriseTitle">
+            <button class="candle-surprise-close" id="candleSurpriseClose" type="button" aria-label="Close surprise">×</button>
+            <div class="surprise-visual" id="surpriseVisual" aria-hidden="true"></div>
+            <p class="eyebrow" id="candleSurpriseEyebrow">A tiny secret for you</p>
+            <div class="surprise-icon" id="candleSurpriseIcon">💗</div>
+            <h3 id="candleSurpriseTitle">A little surprise…</h3>
+            <p id="candleSurpriseText"></p>
+            <div class="surprise-signature" id="candleSurpriseSignature">— from my heart, just for you ♡</div>
+            <button class="btn primary" id="candleSurpriseContinue" type="button">Keep the magic going ✨</button>
+          </div>
+        </div>
+        <h2 class="birthday-shout hidden" id="birthdayShout">
+          HAPPY BIRTHDAY,<br />MY PRINCESS! 👑❤️
+        </h2>
+        <p class="lead">
+          You deserve special things because you are special. ✨
+        </p>
+      </section>
+
+      <section class="section wish-section" id="wish">
+        <div class="section-heading">
+          <p class="eyebrow">A wish just for you</p>
+          <h2>Close your eyes and <span>make a wish</span> ✨</h2>
+          <p>
+            Take a slow breath, think of something your heart truly wants, and
+            write your wish below. You don't have to share it with anyone. 💗
+          </p>
+        </div>
+        <div class="wish-card glass">
+          <div class="wish-moon" aria-hidden="true">
+            🌙<span>✦</span><span>✧</span><span>·</span>
+          </div>
+          <label for="wishText"
+            >Your birthday wish (just for this moment)</label
+          >
+          <textarea
+            id="wishText"
+            rows="3"
+            maxlength="280"
+            placeholder="I wish for..."
+            aria-describedby="wishPrivacy"
+          ></textarea>
+          <p id="wishPrivacy" class="small-note">
+            Your wish stays in this page only; it is not sent anywhere.
+          </p>
+          <button class="btn primary" id="wishBtn" type="button">
+            Release my wish into the stars ✨
+          </button>
+          <div
+            id="wishResponse"
+            class="wish-response hidden"
+            aria-live="polite"
+          >
+            <div class="wish-burst">✦ ✧ ⭐ ✧ ✦</div>
+            <h3>Your wish is now among the stars. 💫</h3>
+            <p>
+              May life surprise you with beautiful reasons to smile, courage
+              when you need it, and a little magic when you least expect it.
+            </p>
+            <p class="wish-echo" id="wishEcho"></p>
+            <button class="btn primary" id="toBlowBtn" type="button">
+              Now blow the candles 🕯️
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="promises">
+        <div class="section-heading">
+          <p class="eyebrow">One tiny request</p>
+          <h2>Princess, promise me <span>something?</span> 🥺💗</h2>
+          <p>Choose all six little promises, just for yourself.</p>
+        </div>
+        <div class="promise-progress" id="promiseProgress" aria-live="polite">
+          0 of 6 promises made
+        </div>
+        <div class="promise-grid">
+          <label class="promise-card"
+            ><input type="checkbox" class="promise-check" /><span
+              class="promise-icon"
+              >😴</span
+            >
+            <h3>Rest on Time 😴</h3>
+            <p>Promise to give yourself the rest you deserve.</p>
+            <span class="check-visual" aria-hidden="true">✓ ✨</span></label
+          >
+          <label class="promise-card"
+            ><input type="checkbox" class="promise-check" /><span
+              class="promise-icon"
+              >🍓</span
+            >
+            <h3>Eat on Time 🍓</h3>
+            <p>Promise not to skip your meals, even when work gets busy.</p>
+            <span class="check-visual" aria-hidden="true">✓ ✨</span></label
+          >
+          <label class="promise-card"
+            ><input type="checkbox" class="promise-check" /><span
+              class="promise-icon"
+              >🫶</span
+            >
+            <h3>Take Care of Yourself 🫶</h3>
+            <p>
+              Promise to care for yourself as kindly as you care for others.
+            </p>
+            <span class="check-visual" aria-hidden="true">✓ ✨</span></label
+          >
+          <label class="promise-card"
+            ><input type="checkbox" class="promise-check" /><span
+              class="promise-icon"
+              >😊</span
+            >
+            <h3>Keep Smiling 😊</h3>
+            <p>Promise to protect that beautiful smile.</p>
+            <span class="check-visual" aria-hidden="true">✓ ✨</span></label
+          >
+          <label class="promise-card"
+            ><input type="checkbox" class="promise-check" /><span
+              class="promise-icon"
+              >🌈</span
+            >
+            <h3>Enjoy Life 🌈</h3>
+            <p>Promise to make time for little moments of happiness.</p>
+            <span class="check-visual" aria-hidden="true">✓ ✨</span></label
+          >
+          <label class="promise-card"
+            ><input type="checkbox" class="promise-check" /><span
+              class="promise-icon"
+              >🌻</span
+            >
+            <h3>Give Yourself Hope 🌻</h3>
+            <p>Promise to remember that difficult days will pass.</p>
+            <span class="check-visual" aria-hidden="true">✓ ✨</span></label
+          >
+        </div>
+        <button class="btn secondary" id="promiseBtn" type="button" disabled>
+          I Promise, Pinky Promise! 🤙💖
+        </button>
+        <div
+          class="promise-response hidden"
+          id="promiseResponse"
+          aria-live="polite"
+        >
+          <h3>That's my girl! 🥹❤️</h3>
+          <p>
+            Thank you for making these little promises to yourself. Take care of
+            yourself, Princess. You deserve kindness, happiness, and peaceful
+            days. 🌷✨
+          </p>
+        </div>
+      </section>
+
+      <section class="section gift-section" id="gift">
+        <div class="section-heading">
+          <p class="eyebrow">One last little surprise</p>
+          <h2>For you, <span>Princess</span> 🎀</h2>
+          <p>Tap the gift to open your surprise.</p>
+        </div>
+        <button
+          class="gift-box"
+          id="giftBtn"
+          aria-label="Open birthday gift"
+          type="button"
+        >
+          <span class="gift-lid"></span><span class="gift-bow">🎀</span
+          ><span class="gift-body"></span><span class="gift-sparkle">✦</span>
+        </button>
+        <div class="gift-message hidden" id="giftMessage">
+          <p>You are so beautiful… more than you realize. ❤️</p>
+          <p>You are special.</p>
+          <p>You are amazing.</p>
+          <p>And you are more precious than you probably know. ✨</p>
+          <h2>Happy Birthday, PUJA. ❤️</h2>
+          <p>Keep smiling, smile suits you. 🌷🥹</p>
+          <p>You deserve all the beautiful things life has to offer. 👑💖</p>
+          <div class="support-note scratch-card" id="scratchCard">
+            <span class="support-note-heart" aria-hidden="true">🤍</span>
+            <h3>A little promise, from my heart</h3>
+            <p>
+              If you are busy, I can wait. If you're not in a good mood, I'll
+              listen. I can help you, and no matter what happens, I will support
+              you. If you need me, I'm always here. You don't have to face
+              everything alone. Take your time, breathe, and remember that you
+              matter to me—in a special and heartfelt way. ❤️
+            </p>
+            <canvas
+              class="scratch-canvas"
+              id="scratchCanvas"
+              tabindex="0"
+              role="button"
+              aria-label="Scratch to reveal your little promise. Press Enter to reveal it instantly."
+            ></canvas>
+          </div>
+        </div>
+        <button
+          class="btn subtle hidden secret-final-button"
+          id="secretBtn"
+          type="button"
+        >
+          One Little Thing I Wanted to Tell You... 🤍
+        </button>
+        <button class="btn secondary hidden" id="replayBtn" type="button">
+          Replay Your Birthday Magic ✨
+        </button>
+      </section>
+
+      <footer>
+        Made with care, just to make you smile. ❤️ <span>31 · 10 · PUJA</span>
+      </footer>
+    </main>
+
+    <!-- Custom SVG heart masks used by the video reveal (animated from script.js) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <defs>
+        <clipPath id="videoHeartClip1" clipPathUnits="objectBoundingBox"><path id="videoHeartPath1" d="M.5,.9 C.5,.9 .05,.6 .05,.32 C.05,.15 .18,.05 .3,.05 C.4,.05 .47,.1 .5,.18 C.53,.1 .6,.05 .7,.05 C.82,.05 .95,.15 .95,.32 C.95,.6 .5,.9 .5,.9 Z" transform="translate(.5 .5) scale(.001) translate(-.5 -.45)" /></clipPath>
+        <clipPath id="videoHeartClip2" clipPathUnits="objectBoundingBox"><path id="videoHeartPath2" d="M.5,.9 C.5,.9 .05,.6 .05,.32 C.05,.15 .18,.05 .3,.05 C.4,.05 .47,.1 .5,.18 C.53,.1 .6,.05 .7,.05 C.82,.05 .95,.15 .95,.32 C.95,.6 .5,.9 .5,.9 Z" transform="translate(.5 .5) scale(.001) translate(-.5 -.45)" /></clipPath>
+      </defs>
+    </svg>
+    <dialog id="secretDialog" class="modal">
+      <div class="modal-content">
+        <button class="modal-close" id="closeSecret" aria-label="Close">
+          ×
+        </button>
+        <div class="loader-heart" id="loaderHeart">💌</div>
+        <div class="loader-dots" id="loaderDots" aria-hidden="true">• • •</div>
+        <p id="secretLoading">Gathering a little courage...</p>
+        <div id="secretReveal" class="hidden">
+          <h2>Maybe this isn't the right time... 🥹💭</h2>
+          <p>I'll tell you later. 💌</p>
+          <p>Happy Birthday, Princess! 👑❤️</p>
+          <p>Keep smiling and be happy, okay? 🫶🌷✨</p>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- ============ PLACE THE BIRTHDAY CROWN (opens after the gift box opens) ============ -->
+    <div class="crown-scene hidden" id="crownScene" role="dialog" aria-modal="true" aria-label="Place the birthday crown">
+      <div class="cs-light" aria-hidden="true"></div>
+      <div class="cs-float" id="csFloat" aria-hidden="true"></div>
+      <div class="cs-stage">
+        <svg class="cs-svg" viewBox="0 -30 400 560" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="csGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff2c4" /><stop offset=".45" stop-color="#f0c767" /><stop offset="1" stop-color="#c8963a" /></linearGradient>
+            <radialGradient id="csGem" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#fff0f6" /><stop offset=".45" stop-color="#ff9dc4" /><stop offset="1" stop-color="#e0457f" /></radialGradient>
+            <linearGradient id="csSkin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fde3d2" /><stop offset="1" stop-color="#f3c2a8" /></linearGradient>
+            <linearGradient id="csHand" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbddcb" /><stop offset="1" stop-color="#f1bda3" /></linearGradient>
+            <linearGradient id="csSatin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe4ef" /><stop offset=".55" stop-color="#f9b4d0" /><stop offset="1" stop-color="#ee86b2" /></linearGradient>
+            <linearGradient id="csHair" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6b3b2a" /><stop offset="1" stop-color="#341912" /></linearGradient>
+            <linearGradient id="csDress" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd0e3" /><stop offset="1" stop-color="#f08db7" /></linearGradient>
+
+            <!-- Hand (LEFT hand, fingers point right, pinch point = 0,0). The right hand re-uses it mirrored. -->
+            <g id="csHB">
+              <g transform="rotate(-10 -70 25)">
+                <rect x="-3000" y="-2" width="2904" height="54" rx="14" fill="url(#csSatin)" stroke="#fff" stroke-opacity=".7" stroke-width=".8" />
+                <rect x="-112" y="-5" width="16" height="60" rx="7" fill="#fff8fb" stroke="#e5b3cb" stroke-width=".8" />
+                <rect x="-98" y="8" width="38" height="34" rx="9" fill="url(#csHand)" stroke="#e4b79f" stroke-width=".8" />
+              </g>
+              <path d="M-74,6 C-62,-4 -40,-4 -28,6 L-26,46 C-40,56 -62,54 -74,42 Z" fill="url(#csHand)" stroke="#e4b79f" stroke-width=".8" />
+              <g fill="url(#csHand)" stroke="#e4b79f" stroke-width=".8">
+                <rect x="-30" y="37.5" width="25" height="8.5" rx="4.2" />
+                <rect x="-30" y="28" width="34" height="9.5" rx="4.7" />
+                <rect x="-30" y="18" width="42" height="10" rx="5" />
+                <rect x="-30" y="8" width="48" height="10" rx="5" />
+              </g>
+              <g fill="#ffd9e4" opacity=".92">
+                <ellipse cx="14" cy="13" rx="3.6" ry="2.8" />
+                <ellipse cx="8" cy="23" rx="3.4" ry="2.7" />
+                <ellipse cx="0.5" cy="32.7" rx="3.2" ry="2.6" />
+                <ellipse cx="-9" cy="41.7" rx="3" ry="2.4" />
+              </g>
+            </g>
+            <g id="csHT">
+              <ellipse cx="-44" cy="12" rx="15" ry="11" fill="url(#csHand)" />
+              <path d="M-44,12 C-40,-4 -22,-14 4,-12" fill="none" stroke="#e4b79f" stroke-width="14" stroke-linecap="round" />
+              <path d="M-44,12 C-40,-4 -22,-14 4,-12" fill="none" stroke="#f7d2bd" stroke-width="12.2" stroke-linecap="round" />
+              <ellipse cx="3" cy="-12.5" rx="3.6" ry="2.7" fill="#ffd9e4" transform="rotate(-8 3 -12.5)" />
+            </g>
+          </defs>
+
+          <g id="csJoy"><g class="cs-bob">
+            <!-- ===== the girl ===== -->
+            <path d="M140,290 C112,360 120,470 140,540 L260,540 C280,470 288,360 260,290 C250,240 150,240 140,290Z" fill="url(#csHair)" />
+            <path d="M70,540 C78,452 128,408 200,408 C272,408 322,452 330,540Z" fill="url(#csDress)" />
+            <path d="M182,360 L182,408 Q200,424 218,408 L218,360Z" fill="#f1c3aa" />
+            <path d="M166,411 Q200,440 234,411 Q200,420 166,411Z" fill="#fff" opacity=".75" />
+            <ellipse cx="200" cy="312" rx="52" ry="60" fill="url(#csSkin)" />
+            <ellipse cx="164" cy="340" rx="12" ry="7" fill="#ff8fb0" opacity=".32" />
+            <ellipse cx="236" cy="340" rx="12" ry="7" fill="#ff8fb0" opacity=".32" />
+            <g fill="none" stroke="#4a2418" stroke-linecap="round">
+              <path d="M170,322 Q181,312 192,322" stroke-width="2.8" />
+              <path d="M208,322 Q219,312 230,322" stroke-width="2.8" />
+              <path d="M169,305 Q181,299 193,304" stroke-width="2.2" opacity=".8" />
+              <path d="M207,304 Q219,299 231,305" stroke-width="2.2" opacity=".8" />
+            </g>
+            <path d="M199,328 q-3,9 2,10" fill="none" stroke="#e0a58c" stroke-width="2" stroke-linecap="round" />
+            <path d="M184,350 Q200,366 216,350" fill="#ff9db8" stroke="#d9607f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+            <!-- front hair -->
+            <path d="M146,314 C140,258 168,236 200,236 C234,236 262,258 254,314 C250,288 236,270 218,262 C200,284 168,290 146,314Z" fill="url(#csHair)" />
+            <path d="M146,300 C134,350 138,400 150,440 C158,400 160,350 158,300Z" fill="url(#csHair)" />
+            <path d="M254,300 C266,350 262,400 250,440 C242,400 240,350 242,300Z" fill="url(#csHair)" />
+            <path d="M170,250 C185,242 205,242 222,250" fill="none" stroke="#fff" stroke-opacity=".18" stroke-width="3" stroke-linecap="round" />
+
+            <!-- ===== crown anchor: edit translate(x y) to move where the crown sits on her head ===== -->
+            <g id="csAnchor" transform="translate(200 262)">
+              <g id="csAsm" style="transform:translateY(-215px)">
+                <g class="cs-hand-back cs-L"><g transform="translate(-52 -7)"><use href="#csHB" /><image class="cs-hand-img" display="none" /></g></g>
+                <g class="cs-hand-back cs-R"><g transform="translate(52 -7) scale(-1 1)"><use href="#csHB" /><image class="cs-hand-img" display="none" /></g></g>
+
+                <g id="csCrown" style="opacity:0">
+                  <g class="cs-crown-art">
+                    <path d="M-52,0 L-56,-36 L-34,-20 L-26,-46 L-10,-24 L0,-60 L10,-24 L26,-46 L34,-20 L56,-36 L52,0 Z" fill="url(#csGold)" stroke="#b6862a" stroke-width="1" stroke-linejoin="round" />
+                    <rect x="-52" y="-14" width="104" height="14" rx="3" fill="url(#csGold)" stroke="#b6862a" stroke-width="1" />
+                    <path d="M-48,-13 H48" stroke="#fff3c9" stroke-width="1" opacity=".8" />
+                    <path d="M-30,-28 L-26,-40 M-4,-30 L0,-52" stroke="#fff" stroke-width=".8" opacity=".6" />
+                    <g fill="url(#csGem)" stroke="#fff" stroke-width=".6">
+                      <circle cx="-56" cy="-38" r="3.4" /><circle cx="-26" cy="-48" r="3.4" /><circle cx="0" cy="-62" r="4.6" /><circle cx="26" cy="-48" r="3.4" /><circle cx="56" cy="-38" r="3.4" />
+                      <ellipse cx="-26" cy="-7" rx="4" ry="3.4" /><ellipse cx="0" cy="-7" rx="5" ry="4" /><ellipse cx="26" cy="-7" rx="4" ry="3.4" />
+                    </g>
+                    <g fill="#fff7d6"><circle cx="-40" cy="-7" r="1.3" /><circle cx="-13" cy="-7" r="1.3" /><circle cx="13" cy="-7" r="1.3" /><circle cx="40" cy="-7" r="1.3" /></g>
+                  </g>
+                  <image class="cs-crown-img" display="none" />
+                </g>
+
+                <g class="cs-hand-front cs-L"><g transform="translate(-52 -7)"><use href="#csHT" /></g></g>
+                <g class="cs-hand-front cs-R"><g transform="translate(52 -7) scale(-1 1)"><use href="#csHT" /></g></g>
+              </g>
+              <g id="csTwinkle"></g>
+              <g id="csSpark" transform="translate(0 -30)"></g>
+            </g>
+          </g></g>
+        </svg>
+      </div>
+      <div class="cs-text" id="csText">
+        <h2>Today, the crown belongs to you, Puja. 👑💗</h2>
+        <p>Because even on your busiest days, you deserve to feel like the most special girl in the world.</p>
+      </div>
+      <div class="cs-actions">
+        <p class="cs-hint" id="csHint">Someone has one more little thing for you… ✨</p>
+        <button class="btn primary" id="csPlaceBtn" type="button">Place Your Crown, Princess 👑</button>
+        <button class="btn primary hidden" id="csContinueBtn" type="button">Continue to Your Next Surprise →</button>
+      </div>
+    </div>
+    <audio
+      id="backgroundMusic"
+      loop
+      preload="auto"
+      playsinline
+      src="photos/birthday-music.mp3"
+    ></audio>
+  </body>
+</html>
