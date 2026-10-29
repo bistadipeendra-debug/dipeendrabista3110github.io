@@ -3062,7 +3062,8 @@ footer span { color: #c2185b; }
 .cs-stage {
   position: relative;
   z-index: 1;
-  width: min(92vw, calc(min(56svh, 540px) * 0.7143));
+  width: min(76vw, calc(min(42svh, 420px) * 0.7143));
+  transform: translateY(34px);
   aspect-ratio: 400 / 560;
 }
 .cs-svg { width: 100%; height: 100%; display: block; overflow: visible; filter: drop-shadow(0 10px 22px rgba(194, 24, 91, 0.16)); }
@@ -3394,7 +3395,7 @@ button.candle:focus-visible {
 #calendar {
   isolation: isolate;
   background:
-    linear-gradient(rgba(255, 222, 239, 0.38), rgba(255, 232, 243, 0.48)),
+    linear-gradient(rgba(255, 222, 239, 0.22), rgba(255, 232, 243, 0.30)),
     url("photos/puja-3.jpg") center 38% / cover no-repeat;
   border-radius: 28px;
 }
@@ -3403,10 +3404,10 @@ button.candle:focus-visible {
   text-shadow: 0 1px 12px rgba(92, 34, 75, 0.22);
 }
 #calendar .calendar-card {
-  background: rgba(255, 244, 250, 0.78);
+  background: rgba(255, 244, 250, 0.52);
   border: 1px solid rgba(255, 255, 255, 0.72);
   box-shadow: 0 18px 55px rgba(95, 32, 75, 0.18);
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(1.5px);
   color: #552747;
 }
 #calendar .calendar-top,
@@ -3423,7 +3424,7 @@ button.candle:focus-visible {
 #letter {
   isolation: isolate;
   background:
-    linear-gradient(rgba(255, 224, 240, 0.36), rgba(255, 235, 245, 0.50)),
+    linear-gradient(rgba(255, 224, 240, 0.20), rgba(255, 235, 245, 0.30)),
     url("photos/puja-2.jpg") center 35% / cover no-repeat;
   border-radius: 28px;
 }
@@ -3432,11 +3433,11 @@ button.candle:focus-visible {
   box-shadow: 0 16px 45px rgba(95, 32, 75, 0.2);
 }
 #letter .letter-paper {
-  background: rgba(255, 248, 252, 0.88);
+  background: rgba(255, 248, 252, 0.58);
   color: #512642;
   border: 1px solid rgba(255,255,255,0.8);
   box-shadow: 0 18px 55px rgba(95, 32, 75, 0.2);
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(1.5px);
 }
 #letter .letter-paper p,
 #letter .letter-paper h3,
@@ -3445,8 +3446,8 @@ button.candle:focus-visible {
 /* Crown scene uses the first photo without covering the crown illustration. */
 .crown-scene {
   background:
-    linear-gradient(rgba(255, 222, 239, 0.42), rgba(255, 230, 244, 0.52)),
-    url("photos/puja-1.jpg") center 35% / cover no-repeat;
+    linear-gradient(rgba(255, 222, 239, 0.22), rgba(255, 230, 244, 0.30)),
+    url("photos/puja-1.jpg") center 24% / cover no-repeat;
 }
 .crown-scene .cs-text,
 .crown-scene .cs-actions {
@@ -3456,5 +3457,6 @@ button.candle:focus-visible {
   #calendar, #letter { border-radius: 18px; }
   #calendar { background-position: center; }
   #letter { background-position: center; }
-  .crown-scene { background-position: center; }
+  .crown-scene { background-position: center 24%; }
+  .cs-stage { width: min(68vw, calc(min(38svh, 380px) * 0.7143)); transform: translateY(24px); }
 }
